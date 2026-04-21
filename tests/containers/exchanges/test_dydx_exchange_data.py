@@ -1,0 +1,15 @@
+"""Tests for DydxExchangeData container."""
+
+from __future__ import annotations
+
+from bt_api_dydx.exchange_data import DydxExchangeData
+
+
+class TestDydxExchangeData:
+    """Tests for DydxExchangeData."""
+
+    def test_init(self):
+        """Test initialization."""
+        exchange = DydxExchangeData()
+
+        assert "Dydx" in exchange.exchange_name or "DYDX" in exchange.exchange_name
