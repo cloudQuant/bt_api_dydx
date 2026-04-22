@@ -4,8 +4,8 @@ from datetime import datetime
 from typing import Any
 
 from bt_api_base.containers.requestdatas.request_data import RequestData
-from bt_api_base.functions.utils import from_dict_get_float
 from bt_api_base.logging_factory import get_logger
+
 from bt_api_dydx.exchange_data.dydx_exchange_data import DydxExchangeDataSwap
 from bt_api_dydx.feeds.live_dydx.request_base import DydxRequestData
 

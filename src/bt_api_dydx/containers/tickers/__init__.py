@@ -1,7 +1,7 @@
 from bt_api_dydx.containers.tickers.dydx_ticker import (
+    DydxRequestTickerData,
     DydxTickerData,
     DydxWssTickerData,
-    DydxRequestTickerData,
 )
 
 __all__ = ["DydxTickerData", "DydxWssTickerData", "DydxRequestTickerData"]

@@ -3,9 +3,10 @@ from __future__ import annotations
 from typing import Any
 
 from bt_api_base.balance_utils import nested_balance_handler as _dydx_balance_handler
+from bt_api_base.registry import ExchangeRegistry
+
 from bt_api_dydx.exchange_data.dydx_exchange_data import DydxExchangeDataSwap
 from bt_api_dydx.feeds.live_dydx.spot import DydxRequestDataSpot
-from bt_api_base.registry import ExchangeRegistry
 
 
 def _dydx_subscribe_handler(
