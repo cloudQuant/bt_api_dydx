@@ -12,11 +12,15 @@ from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_strin
 class DydxTickerData(TickerData):
     """dYdX ticker information."""
 
-    def __init__(self, ticker_info, symbol_name, asset_type, has_been_json_encoded=False) -> None:
+    def __init__(
+        self, ticker_info, symbol_name, asset_type, has_been_json_encoded=False
+    ) -> None:
         super().__init__(ticker_info, has_been_json_encoded)
         self.exchange_name = "DYDX"
         self.local_update_time = time.time()
-        self.ticker_data: dict[str, Any] | None = ticker_info if has_been_json_encoded else None
+        self.ticker_data: dict[str, Any] | None = (
+            ticker_info if has_been_json_encoded else None
+        )
         self.ticker_symbol_name: str | None = None
         self.has_been_init_data = False
         self.symbol_name = symbol_name
@@ -147,8 +151,12 @@ class DydxWssTickerData(DydxTickerData):
                 market_data = markets[self.symbol_name]
                 self.last_price = from_dict_get_float(market_data, "oraclePrice")
                 self.volume_24h = from_dict_get_float(market_data, "volume24H")
-                self.funding_rate = from_dict_get_float(market_data, "currentFundingRate")
-                self.next_funding_at = from_dict_get_string(market_data, "nextFundingRateAt")
+                self.funding_rate = from_dict_get_float(
+                    market_data, "currentFundingRate"
+                )
+                self.next_funding_at = from_dict_get_string(
+                    market_data, "nextFundingRateAt"
+                )
 
         self.has_been_init_data = True
         return self
@@ -173,11 +181,17 @@ class DydxRequestTickerData(DydxTickerData):
                 self.server_time = from_dict_get_string(market_data, "snapshotAt")
                 self.last_price = from_dict_get_float(market_data, "oraclePrice")
                 self.volume_24h = from_dict_get_float(market_data, "volume24H")
-                self.volume_24h_usd = from_dict_get_float(market_data, "volumeNotional24H")
+                self.volume_24h_usd = from_dict_get_float(
+                    market_data, "volumeNotional24H"
+                )
                 self.high_24h = from_dict_get_float(market_data, "high24H")
                 self.low_24h = from_dict_get_float(market_data, "low24H")
-                self.funding_rate = from_dict_get_float(market_data, "currentFundingRate")
-                self.next_funding_at = from_dict_get_string(market_data, "nextFundingRateAt")
+                self.funding_rate = from_dict_get_float(
+                    market_data, "currentFundingRate"
+                )
+                self.next_funding_at = from_dict_get_string(
+                    market_data, "nextFundingRateAt"
+                )
                 self.mark_price = from_dict_get_float(market_data, "markPrice")
                 self.oracle_price = from_dict_get_float(market_data, "oraclePrice")
 

@@ -68,14 +68,25 @@ class DydxExchangeData(ExchangeData):
                 "args": [{"channel": "v4_orderbook", "id": "<symbol>"}],
                 "op": "subscribe",
             },
-            "trades": {"args": [{"channel": "v4_trades", "id": "<symbol>"}], "op": "subscribe"},
+            "trades": {
+                "args": [{"channel": "v4_trades", "id": "<symbol>"}],
+                "op": "subscribe",
+            },
             "markets": {"args": [{"channel": "v4_markets"}], "op": "subscribe"},
             "candles": {
-                "args": [{"channel": "v4_candles", "id": "<symbol>", "resolution": "<period>"}],
+                "args": [
+                    {
+                        "channel": "v4_candles",
+                        "id": "<symbol>",
+                        "resolution": "<period>",
+                    }
+                ],
                 "op": "subscribe",
             },
             "subaccounts": {
-                "args": [{"channel": "v4_subaccounts", "id": "<address>/<subaccount_number>"}],
+                "args": [
+                    {"channel": "v4_subaccounts", "id": "<address>/<subaccount_number>"}
+                ],
                 "op": "subscribe",
             },
             "parent_subaccounts": {
@@ -170,7 +181,9 @@ class DydxExchangeData(ExchangeData):
                 if "<address>" in v:
                     v = v.replace("<address>", kwargs.get("address", ""))
                 if "<subaccount_number>" in v:
-                    v = v.replace("<subaccount_number>", str(kwargs.get("subaccount_number", "")))
+                    v = v.replace(
+                        "<subaccount_number>", str(kwargs.get("subaccount_number", ""))
+                    )
                 if "<period>" in v:
                     v = v.replace("<period>", self.get_period(kwargs.get("period", "")))
                 arg_dict[k] = v

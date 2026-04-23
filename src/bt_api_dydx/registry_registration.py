@@ -19,10 +19,14 @@ def _dydx_subscribe_handler(
     topic_list = [i["topic"] for i in topics]
 
     if "ticker" in topic_list or "depth" in topic_list or "trades" in topic_list:
-        bt_api.log("Market data subscription requested but WebSocket not implemented yet")
+        bt_api.log(
+            "Market data subscription requested but WebSocket not implemented yet"
+        )
 
     if "account" in topic_list or "orders" in topic_list or "positions" in topic_list:
-        bt_api.log("Account data subscription requested but WebSocket not implemented yet")
+        bt_api.log(
+            "Account data subscription requested but WebSocket not implemented yet"
+        )
 
     bt_api.log("dYdX integration registered. REST API available.")
 

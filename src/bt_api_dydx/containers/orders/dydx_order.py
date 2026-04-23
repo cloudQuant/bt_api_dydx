@@ -10,7 +10,9 @@ from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_strin
 class DydxOrderData(OrderData):
     """dYdX order class for determining order properties and methods."""
 
-    def __init__(self, order_info, symbol_name, asset_type, has_been_json_encoded=False):
+    def __init__(
+        self, order_info, symbol_name, asset_type, has_been_json_encoded=False
+    ):
         super().__init__(order_info, has_been_json_encoded)
         self.exchange_name = "DYDX"
         self.symbol_name = symbol_name
@@ -64,7 +66,9 @@ class DydxOrderData(OrderData):
         self.server_time = from_dict_get_string(self.order_data, "createdAt")
         self.order_id = from_dict_get_string(self.order_data, "id")
         self.client_order_id = from_dict_get_string(self.order_data, "clientId")
-        self.subaccount_number = from_dict_get_string(self.order_data, "subaccountNumber")
+        self.subaccount_number = from_dict_get_string(
+            self.order_data, "subaccountNumber"
+        )
         self.market = from_dict_get_string(self.order_data, "market")
         self.side = from_dict_get_string(self.order_data, "side")
         self.order_type = from_dict_get_string(self.order_data, "type")

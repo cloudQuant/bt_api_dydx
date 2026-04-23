@@ -59,7 +59,9 @@ class DydxRequestDataSpot(DydxRequestData):
                     return float(value)
                 except ValueError:
                     try:
-                        return datetime.fromisoformat(value.replace("Z", "+00:00")).timestamp()
+                        return datetime.fromisoformat(
+                            value.replace("Z", "+00:00")
+                        ).timestamp()
                     except ValueError:
                         return 0.0
             return 0.0
@@ -87,14 +89,20 @@ class DydxRequestDataSpot(DydxRequestData):
                 return ticker_info, status
         return None, False
 
-    def get_ticker(self, symbol: Any, extra_data: Any = None, **kwargs: Any) -> RequestData:
+    def get_ticker(
+        self, symbol: Any, extra_data: Any = None, **kwargs: Any
+    ) -> RequestData:
         """Get ticker information."""
         path, params, extra_data = self.get_ticker_spot(symbol, extra_data, **kwargs)
         data = self.request(path, params=params, extra_data=extra_data)
         return data
 
     def get_balance_spot(
-        self, address: Any, subaccount_number: Any, extra_data: Any = None, **kwargs: Any
+        self,
+        address: Any,
+        subaccount_number: Any,
+        extra_data: Any = None,
+        **kwargs: Any,
     ) -> tuple[str, None, dict[str, Any]]:
         """Get spot balance information."""
         request_type = "get_subaccount"
@@ -139,7 +147,9 @@ class DydxRequestDataSpot(DydxRequestData):
         data = balance_info
         return data, status
 
-    def get_balance(self, symbol: Any = None, extra_data: Any = None, **kwargs: Any) -> RequestData:
+    def get_balance(
+        self, symbol: Any = None, extra_data: Any = None, **kwargs: Any
+    ) -> RequestData:
         """Get balance information."""
         address = kwargs.pop("address", self.address or "")
         subaccount_number = kwargs.pop("subaccount_number", self.subaccount_number)
@@ -370,7 +380,9 @@ class DydxRequestDataSpot(DydxRequestData):
         self, symbol: Any, order_id: Any, extra_data: Any = None, **kwargs: Any
     ) -> RequestData:
         """Query order status. Returns RequestData."""
-        path, params, extra_data = self._query_order(symbol, order_id, extra_data, **kwargs)
+        path, params, extra_data = self._query_order(
+            symbol, order_id, extra_data, **kwargs
+        )
         return self.request(path, params=params, extra_data=extra_data)
 
     # Standard Interface: get_open_orders
