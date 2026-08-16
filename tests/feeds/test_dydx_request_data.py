@@ -1,6 +1,8 @@
+"""Module-level docstring."""
 import pytest
 from bt_api_dydx.feeds.live_dydx.request_base import DydxRequestData
 def test_dydx_accepts_public_private_key_aliases() -> None:
+    """test_dydx_accepts_public_private_key_aliases function"""
     request_data = DydxRequestData(
         None,
         public_key="public-key",

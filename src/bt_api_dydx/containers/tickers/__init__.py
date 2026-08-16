@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from bt_api_dydx.containers.tickers.dydx_ticker import (
     DydxRequestTickerData,
     DydxTickerData,

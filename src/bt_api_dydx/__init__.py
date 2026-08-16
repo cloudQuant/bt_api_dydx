@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 __version__ = "0.15.0"
 
 from bt_api_dydx.containers.balances.dydx_balance import DydxBalanceData

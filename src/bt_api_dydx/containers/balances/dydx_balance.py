@@ -1,3 +1,4 @@
+"""Module documentation"""
 from __future__ import annotations
 
 import json
@@ -18,6 +19,7 @@ class DydxBalanceData(BalanceData):
         asset_type: str,
         has_been_json_encoded: bool = False,
     ) -> None:
+        """__init__ method"""
         super().__init__(balance_info, has_been_json_encoded)
         self.exchange_name = "DYDX"
         self.symbol_name = symbol_name
@@ -38,6 +40,7 @@ class DydxBalanceData(BalanceData):
         self.has_been_init_data = False
 
     def init_data(self):
+        """init_data method"""
         if not self.has_been_json_encoded:
             self.balance_data = json.loads(self.balance_info)
             self.has_been_json_encoded = True
@@ -71,6 +74,7 @@ class DydxBalanceData(BalanceData):
         return self
 
     def get_all_data(self) -> dict[str, Any]:
+        """get_all_data method"""
         if self.all_data is None:
             self.all_data = {
                 "exchange_name": self.exchange_name,
@@ -98,67 +102,89 @@ class DydxBalanceData(BalanceData):
         return self.__str__()
 
     def get_exchange_name(self) -> str:
+        """get_exchange_name method"""
         return self.exchange_name
 
     def get_symbol_name(self) -> str:
+        """get_symbol_name method"""
         return self.symbol_name or ""
 
     def get_asset_type(self) -> str:
+        """get_asset_type method"""
         return self.asset_type or ""
 
     def get_server_time(self) -> float | None:
+        """get_server_time method"""
         return None
 
     def get_local_update_time(self) -> float:
+        """get_local_update_time method"""
         return self.local_update_time
 
     def get_account_id(self) -> Any:
+        """get_account_id method"""
         return self.address
 
     def get_account_type(self) -> Any:
+        """get_account_type method"""
         return "PERPETUAL"
 
     def get_fee_tier(self) -> Any:
+        """get_fee_tier method"""
         return None
 
     def get_max_withdraw_amount(self) -> Any:
+        """get_max_withdraw_amount method"""
         return self.free_collateral
 
     def get_margin(self) -> Any:
+        """get_margin method"""
         return self.margin_balance
 
     def get_used_margin(self) -> Any:
+        """get_used_margin method"""
         return self.position_margin
 
     def get_maintain_margin(self) -> Any:
+        """get_maintain_margin method"""
         return self.initial_margin_requirement
 
     def get_available_margin(self) -> Any:
+        """get_available_margin method"""
         return self.available_margin
 
     def get_open_order_initial_margin(self) -> Any:
+        """get_open_order_initial_margin method"""
         return self.position_margin
 
     def get_position_initial_margin(self) -> Any:
+        """get_position_initial_margin method"""
         return self.position_margin
 
     def get_unrealized_profit(self) -> Any:
+        """get_unrealized_profit method"""
         return self.open_pnl
 
     def get_interest(self) -> Any:
+        """get_interest method"""
         return None
 
     def get_address(self) -> Any:
+        """get_address method"""
         return self.address
 
     def get_subaccount_number(self) -> Any:
+        """get_subaccount_number method"""
         return self.subaccount_number
 
     def get_equity(self) -> Any:
+        """get_equity method"""
         return self.equity
 
     def get_free_collateral(self) -> Any:
+        """get_free_collateral method"""
         return self.free_collateral
 
     def get_account_value(self) -> Any:
+        """get_account_value method"""
         return self.account_value

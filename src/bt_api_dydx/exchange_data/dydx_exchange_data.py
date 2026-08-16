@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 import datetime
@@ -21,6 +22,7 @@ class DydxExchangeData(ExchangeData):
     """
 
     def __init__(self) -> None:
+        """__init__ method"""
         super().__init__()
         self.exchange_name = "DydxSwap"
         self.rest_url = "https://indexer.dydx.trade/v4"
@@ -186,6 +188,7 @@ class DydxExchangeDataSwap(DydxExchangeData):
     """dYdX perpetual swap."""
 
     def __init__(self) -> None:
+        """__init__ method"""
         super().__init__()
 
 
@@ -193,5 +196,6 @@ class DydxExchangeDataSpot(DydxExchangeData):
     """dYdX spot (if supported)."""
 
     def __init__(self) -> None:
+        """__init__ method"""
         super().__init__()
         self.exchange_name = "DydxSpot"

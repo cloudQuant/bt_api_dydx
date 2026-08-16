@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from datetime import datetime
@@ -14,6 +15,7 @@ class DydxRequestDataSpot(DydxRequestData):
     """dYdX spot request data class."""
 
     def __init__(self, data_queue: Any, **kwargs: Any) -> None:
+        """__init__ method"""
         super().__init__(data_queue, **kwargs)
         self.asset_type = kwargs.get("asset_type", "swap")
         self.logger_name = kwargs.get("logger_name", "dydx_spot_feed.log")
@@ -55,8 +57,7 @@ class DydxRequestDataSpot(DydxRequestData):
             if isinstance(value, (int, float)):
                 return float(value)
             if isinstance(value, str):
-                try:
-                    return float(value)
+                try: return float(value)
                 except ValueError:
                     try:
                         return datetime.fromisoformat(value.replace("Z", "+00:00")).timestamp()

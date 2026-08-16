@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from typing import Any
@@ -52,6 +53,7 @@ def _dydx_spot_subscribe_handler(
 
 
 def register_dydx(registry: type[ExchangeRegistry]) -> None:
+    """register_dydx function"""
     registry.register_feed("DYDX___SWAP", DydxRequestDataSpot)
     registry.register_exchange_data("DYDX___SWAP", DydxExchangeDataSwap)
     registry.register_balance_handler("DYDX___SWAP", _dydx_balance_handler)
