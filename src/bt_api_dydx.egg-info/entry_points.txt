@@ -1,2 +1,0 @@
-[bt_api.plugins]
-dydx = bt_api_dydx.plugin:register_plugin
