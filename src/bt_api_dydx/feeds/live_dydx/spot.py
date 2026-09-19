@@ -57,7 +57,8 @@ class DydxRequestDataSpot(DydxRequestData):
             if isinstance(value, (int, float)):
                 return float(value)
             if isinstance(value, str):
-                try: return float(value)
+                try:
+                    return float(value)
                 except ValueError:
                     try:
                         return datetime.fromisoformat(

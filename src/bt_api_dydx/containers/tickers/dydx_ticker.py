@@ -104,7 +104,8 @@ class DydxTickerData(TickerData):
             return None
         if isinstance(st, (int, float)):
             return float(st)
-        try: return float(st)
+        try:
+            return float(st)
         except (TypeError, ValueError):
             return None
 
