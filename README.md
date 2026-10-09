@@ -1,4 +1,4 @@
-# DYDX
+﻿# DYDX
 
 Exchange plugin for bt_api framework.
 

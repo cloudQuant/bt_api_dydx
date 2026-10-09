@@ -1,4 +1,4 @@
-# DYDX Documentation
+﻿# DYDX Documentation
 
 ## English
 
