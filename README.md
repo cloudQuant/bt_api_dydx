@@ -197,3 +197,11 @@ MIT 许可证 - 详见 [LICENSE](LICENSE)。
 
 - 通过 [GitHub Issues](https://github.com/cloudQuant/bt_api_dydx/issues) 反馈问题
 - 邮箱: yunjinqi@gmail.com
+
+## Provider role and integration boundary
+
+`plugin.py` advertises `DYDX___SPOT` and `DYDX___SWAP`; `registry_registration.py` maps request-feed, exchange-data, balance, and subscribe handlers. The subscribe handlers currently only log that WebSocket is not implemented, so their presence is not evidence of a live stream. This provider package owns dYdX-specific API adaptation; `bt_api_base` supplies the shared plugin protocol and registry, while Backtrader owns strategy and backtest logic. Registration metadata alone does not establish live order execution. See [Trading system architecture](https://github.com/cloudQuant/backtrader/blob/dev/docs/TRADING_SYSTEM_ARCHITECTURE.md).
+
+## 提供方职责与集成边界
+
+`plugin.py` 列出 `DYDX___SPOT` 和 `DYDX___SWAP`；`registry_registration.py` 注册请求 Feed、交易所数据、余额处理器和订阅处理器。订阅处理器目前只记录 WebSocket 尚未实现，因此不能据此认定实时推送可用。本包负责 dYdX 专用 API 适配；`bt_api_base` 提供共享插件协议和注册表，Backtrader 负责策略与回测逻辑。注册元数据本身不证明实盘下单路径已实现。架构说明：[Trading system architecture](https://github.com/cloudQuant/backtrader/blob/dev/docs/TRADING_SYSTEM_ARCHITECTURE.md)。
