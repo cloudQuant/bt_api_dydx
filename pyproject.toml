@@ -19,6 +19,10 @@ dydx = "bt_api_dydx.plugin:register_plugin"
 DYDX___SPOT = "bt_api_base.order_identity_projection:project_legacy_order_identity"
 DYDX___SWAP = "bt_api_base.order_identity_projection:project_legacy_order_identity"
 
+[project.entry-points."bt_api.order_request_projections"]
+DYDX___SPOT = "bt_api_base.order_request_projection:legacy_order_request_projection"
+DYDX___SWAP = "bt_api_base.order_request_projection:legacy_order_request_projection"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
