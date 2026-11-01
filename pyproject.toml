@@ -39,3 +39,7 @@ ignore = ["E501"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["bt_api_dydx"]
+
+[project.entry-points."bt_api.fee_projections"]
+DYDX___SPOT = "bt_api_base.fee_projection:legacy_fee_projection"
+DYDX___SWAP = "bt_api_base.fee_projection:legacy_fee_projection"
