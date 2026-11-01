@@ -15,6 +15,10 @@ dependencies = [
 [project.entry-points."bt_api.plugins"]
 dydx = "bt_api_dydx.plugin:register_plugin"
 
+[project.entry-points."bt_api.order_identity_projections"]
+DYDX___SPOT = "bt_api_base.order_identity_projection:project_legacy_order_identity"
+DYDX___SWAP = "bt_api_base.order_identity_projection:project_legacy_order_identity"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
